@@ -9,7 +9,7 @@ const TrustCTASection = () => {
                     <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center">
                         📍
                     </div>
-                    <div className="absolute -top-14 left-80 bg-gray-100 border border-orange-300 text-black font-medium text-sm px-4 py-4 rounded-tr-4xl rounded-lg">
+                    <div className="absolute -top-14 md:left-80 bg-gray-100 border border-orange-300 text-black font-medium text-sm px-3 py-2 md:px-4 md:py-4 rounded-tr-4xl rounded-lg">
                         Trusted by 5000+ sellers Noida
                     </div>
                 </div>

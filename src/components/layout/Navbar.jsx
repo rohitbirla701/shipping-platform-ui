@@ -57,7 +57,7 @@ const Navbar = ({ authType, setAuthType }) => {
                         </div>
                     </div>
                     <button
-                        className="md:hidden mr-20 text-2xl"
+                        className="md:hidden text-2xl"
                         onClick={() => setMobileOpen(!mobileOpen)}
                     >
                         ☰
