@@ -58,7 +58,7 @@ const HeroSection = ({ authType }) => {
 
 
                         {authType && (
-                            <div className="absolute top-28 -right-52 border rounded-full py-12 px-12 -translate-y-1/2 hidden md:block">
+                            <div className="absolute top-28 -right-52 border border-orange-400 rounded-full py-12 px-12 -translate-y-1/2 hidden md:block">
 
                                 {/* Center Orange Circle */}
                                 <div className="relative w-32 h-32 rounded-full bg-orange-500 flex items-center justify-center text-white font-bold text-sm shadow-xl">
