@@ -12,7 +12,7 @@ const HowItWorksSection = () => {
                     Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod
                     tempor incididunt ut labore et dolore magna aliqua.
                 </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-20">
                     <div className="flex flex-col items-center gap-3">
                         <div className="w-14 h-14 rounded-full bg-gray-100 flex items-center justify-center">
                             🔗

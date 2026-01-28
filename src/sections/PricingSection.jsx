@@ -9,7 +9,7 @@ const PricingSection = () => {
                     Choose a plan <br /> that works best for you
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="group border border-gray-300 text-left cursor-pointer w-80 shadow-2xl rounded-xl p-6 transition-all duration-300 hover:bg-orange-500">
+                    <div className="group border border-gray-300 text-left cursor-pointer md:w-80 shadow-2xl rounded-xl p-6 transition-all duration-300 hover:bg-orange-500">
                         <h3 className="text-xl font-bold mb-2 group-hover:text-white">
                             Lite
                         </h3>
@@ -40,7 +40,7 @@ const PricingSection = () => {
                         </ul>
                     </div>
 
-                    <div className="group border border-gray-300 text-left cursor-pointer w-80 shadow-2xl rounded-xl p-6 transition-all duration-300 hover:bg-orange-500">
+                    <div className="group border border-gray-300 text-left cursor-pointer md:w-80 shadow-2xl rounded-xl p-6 transition-all duration-300 hover:bg-orange-500">
                         <h3 className="text-xl font-bold mb-2 group-hover:text-white">
                             Lite
                         </h3>
@@ -70,7 +70,7 @@ const PricingSection = () => {
                         </ul>
                     </div>
 
-                    <div className="group border border-gray-300 text-left cursor-pointer w-80 shadow-2xl rounded-xl p-6 transition-all duration-300 hover:bg-orange-500">
+                    <div className="group border border-gray-300 text-left cursor-pointer md:w-80 shadow-2xl rounded-xl p-6 transition-all duration-300 hover:bg-orange-500">
                         <h3 className="text-xl font-bold mb-2 group-hover:text-white">
                             Lite
                         </h3>
@@ -86,8 +86,6 @@ const PricingSection = () => {
                         <p className="text-sm mb-6 group-hover:text-white">
                             Simple pricing designed for small businesses and beginners.
                         </p>
-
-                        {/* Button */}
                         <Button className="w-60 flex justify-center mb-6 group-hover:bg-black group-hover:from-black! group-hover:via-black! group-hover:to-black! group-hover:text-white!">
                             Create an account
                         </Button>

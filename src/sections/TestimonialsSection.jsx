@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 const testimonials = [
     {
@@ -29,50 +29,71 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => {
-    const [index, setIndex] = useState(1);
+    const [index, setIndex] = useState(0);
+    const containerRef = useRef(null);
+    const cardRef = useRef(null);
+    const [cardWidth, setCardWidth] = useState(0);
+    const [maxIndex, setMaxIndex] = useState(0);
 
-    const prevSlide = () => {
-        setIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
-    };
+    useEffect(() => {
+        const calculate = () => {
+            if (!containerRef.current || !cardRef.current) return;
 
-    const nextSlide = () => {
-        setIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
-    };
+            const gap = window.innerWidth >= 768 ? 24 : 0;
+            const cardW = cardRef.current.offsetWidth + gap;
+            const visibleWidth = containerRef.current.offsetWidth;
+
+            setCardWidth(cardW);
+            setMaxIndex(
+                Math.max(
+                    0,
+                    Math.ceil((cardW * testimonials.length - visibleWidth) / cardW)
+                )
+            );
+        };
+
+        calculate();
+        window.addEventListener("resize", calculate);
+        return () => window.removeEventListener("resize", calculate);
+    }, []);
+
+    const prevSlide = () => setIndex((p) => Math.max(p - 1, 0));
+    const nextSlide = () => setIndex((p) => Math.min(p + 1, maxIndex));
 
     return (
-        <section id="testimonials" className="py-20 bg-black text-white overflow-hidden">
+        <section className="py-20 bg-black text-white overflow-hidden">
             <div className="max-w-6xl mx-auto px-4 text-center">
                 <h2 className="text-4xl font-bold mb-4">
                     Let's see what our client say
                 </h2>
                 <p className="max-w-2xl mx-auto mb-16">
-                    Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore dolore magna aliqua enim ad minim veniam.
+                    Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.
                 </p>
-                <div className="relative">
+
+                <div ref={containerRef} className="relative">
                     <div
-                        className="flex gap-6 transition-transform duration-500"
+                        className="flex gap-0 md:gap-6 transition-transform duration-500 ease-in-out"
                         style={{
-                            transform: `translateX(-${index * 60}%)`,
+                            transform: `translateX(-${index * cardWidth}px)`,
                         }}
                     >
                         {testimonials.map((item, i) => (
                             <div
                                 key={i}
-                                className="min-w-[60%] md:min-w-[40%] p-0.5 rounded-xl bg-transparent hover:bg-linear-to-br hover:from-orange-500 hover:to-orange-600 transition-all duration-300">
-                                <div className="bg-gray-900 rounded-xl px-6 pt-12 pb-6 text-left shadow-md relative">
-                                    <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 bg-gray-200 rounded-full border flex items-center justify-center">
-                                        👤
-                                    </div>
-                                    <p className="text-gray-200 mb-6">
-                                        {item.text}
-                                    </p>
-                                    <div className="mb-1 flex justify-center">
-                                        <h4 className="font-semibold text-orange-500">
+                                ref={i === 0 ? cardRef : null}
+                                className="min-w-full gap-2 md:min-w-[40%]"
+                            >
+                                <div className="p-0.5 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 overflow-visible">
+                                    <div className="bg-gray-900 rounded-xl px-8 pt-16 pb-10 relative">
+
+                                        <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 bg-gray-200 rounded-full border-4 border-gray-900 flex items-center justify-center">
+                                            👤
+                                        </div>
+                                        <p className="text-gray-200 mb-8">{item.text}</p>
+                                        <h4 className="text-center font-semibold text-orange-500 text-lg">
                                             {item.name}
                                         </h4>
-                                    </div>
-                                    <div className="flex justify-center">
-                                        <p className="text-sm text-gray-200">
+                                        <p className="text-center text-sm text-gray-300">
                                             {item.role}
                                         </p>
                                     </div>
@@ -83,33 +104,23 @@ const TestimonialsSection = () => {
                     <div className="flex justify-center gap-6 mt-10">
                         <button
                             onClick={prevSlide}
-                            className="bg-white text-black border cursor-pointer rounded-full w-10 h-10 flex items-center justify-center shadow hover:bg-orange-500 hover:text-white transition-all"
+                            disabled={index === 0}
+                            className={`w-10 h-10 rounded-full font-bold text-2xl cursor-pointer flex items-center justify-center ${index === 0
+                                ? "bg-gray-600"
+                                : "bg-white text-black hover:bg-orange-500 hover:text-white"
+                                }`}
                         >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="w-6 h-6"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                                strokeWidth={2}
-                            >
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                            </svg>
+                            ‹
                         </button>
                         <button
                             onClick={nextSlide}
-                            className="bg-white text-black border cursor-pointer rounded-full w-10 h-10 flex items-center justify-center shadow hover:bg-orange-500 hover:text-white transition-all"
+                            disabled={index === maxIndex}
+                            className={`w-10 h-10 rounded-full font-bold text-2xl cursor-pointer flex items-center justify-center ${index === maxIndex
+                                ? "bg-gray-600"
+                                : "bg-white text-black hover:bg-orange-500 hover:text-white"
+                                }`}
                         >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="w-6 h-6"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                                strokeWidth={2}
-                            >
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                            </svg>
+                            ›
                         </button>
                     </div>
                 </div>

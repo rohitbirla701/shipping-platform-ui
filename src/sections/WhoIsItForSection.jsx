@@ -23,11 +23,11 @@ const WhoIsItForSection = () => {
                             Shopify / WooCommerce <br /> Storesellers
                         </div>
                     </div>
-                    <div className="flex justify-center gap-6">
-                        <div className="py-8 px-3 bg-gray-900 border border-orange-500 rounded-xl font-semibold text-center max-w-xs w-full">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="py-8 px-3 bg-gray-900 border border-orange-500 rounded-xl font-semibold text-center ">
                             SMEs & Startups
                         </div>
-                        <div className="py-8 px-3 bg-gray-900 border border-orange-500 rounded-xl font-semibold text-center max-w-xs w-full">
+                        <div className="py-8 px-3 bg-gray-900 border border-orange-500 rounded-xl font-semibold text-center ">
                             Marketplace <br /> Sellers (Amazon / Flipkart)
                         </div>
                     </div>

@@ -18,7 +18,7 @@ const Navbar = ({ authType, setAuthType }) => {
 
     return (
         <>
-            <nav className="fixed top-5 left-0 w-full z-50 ">
+            <nav className="fixed bg-orange-100 py-5 left-0 w-full z-50 ">
                 <div className="max-w-7xl mx-auto h-16 flex items-center justify-between px-4 md:px-6">
                     <div className="text-3xl md:text-5xl font-bold text-orange-500 cursor-pointer">
                         Swayamship
@@ -65,11 +65,11 @@ const Navbar = ({ authType, setAuthType }) => {
                 </div>
             </nav>
             <div
-                className={`fixed inset-0 z-40 bg-white transition-transform duration-300 md:hidden
+                className={`fixed inset-0 z-40 bg-orange-100 transition-transform duration-300 md:hidden
         ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}
             >
                 <div className="p-6 mt-20">
-                    <ul className="flex flex-col gap-4 text-lg font-medium text-gray-700">
+                    <ul className="flex flex-col gap-4 text-xl justify-centre font-medium text-gray-700">
                         {menuItems.map((item) => (
                             <li
                                 key={item.id}
@@ -93,7 +93,7 @@ const Navbar = ({ authType, setAuthType }) => {
                                 setAuthType("login");
                                 setMobileOpen(false);
                             }}
-                            className="border border-orange-500 py-3 w-60 rounded-md hover:bg-orange-500 hover:text-white"
+                            className="border  border-orange-500 font-bold text-xl py-3 rounded-md hover:bg-orange-500 hover:text-white"
                         >
                             Login
                         </button>
@@ -102,7 +102,7 @@ const Navbar = ({ authType, setAuthType }) => {
                                 setAuthType("register");
                                 setMobileOpen(false);
                             }}
-                            className="border border-orange-500 py-3 w-60 rounded-md hover:bg-orange-500 hover:text-white"
+                            className="border border-orange-500 font-bold text-xl py-3 rounded-md hover:bg-orange-500 hover:text-white"
                         >
                             Sign Up
                         </button>
