@@ -8,7 +8,7 @@ const PricingSection = () => {
                 <h2 className="text-4xl font-bold text-black mb-12">
                     Choose a plan <br /> that works best for you
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <div className="group border border-gray-300 text-left cursor-pointer md:w-80 shadow-2xl rounded-xl p-6 transition-all duration-300 hover:bg-orange-500">
                         <h3 className="text-xl font-bold mb-2 group-hover:text-white">
                             Lite

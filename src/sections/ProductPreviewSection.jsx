@@ -42,11 +42,11 @@ const ProductPreviewSection = () => {
                     <img
                         src="https://cdn.dribbble.com/userupload/12991112/file/original-eb469bc1025a7ccd17252cd4fdfc96e6.png"
                         alt="Orders"
-                        className="absolute bottom-0 md:bottom-16 right-1/2 md:right-80 translate-x-1/2 md:translate-x-0 w-48 md:w-60 rounded-xl shadow-xl z-40" />
+                        className="absolute bottom-0 md:bottom-16 right-1/2 md:right-80 translate-x-1/2 md:translate-x-0 w-48 md:w-60 rounded-xl shadow-xl z-35" />
                     <img
                         src="https://png.pngtree.com/png-vector/20240428/ourmid/pngtree-happy-man-holding-mobile-phone-png-image_12340494.png"
                         alt="Person"
-                        className="absolute bottom-16 md:bottom-60 left-1/2 md:left-auto md:right-96 -translate-x-1/2 md:translate-x-0 w-40 md:w-52 h-auto z-50" />
+                        className="absolute bottom-16 md:bottom-60 left-1/2 md:left-auto md:right-96 -translate-x-1/2 md:translate-x-0 w-40 md:w-52 h-auto z-35" />
                 </div>
             </div>
         </section>
